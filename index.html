@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dragon Fun Facts Generator</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            min-height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            color: #ffd700;
+            margin-bottom: 2rem;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+
+        .fact-box {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #fact-display {
+            color: #ffffff;
+            font-size: 1.2rem;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        #generate-btn {
+            background: #ffd700;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        #generate-btn:hover {
+            background: #ffed4a;
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🐲 Mystical Dragon Facts 🐲</h1>
+        <div class="fact-box">
+            <p id="fact-display">Click the button to learn an amazing dragon fact!</p>
+        </div>
+        <button id="generate-btn">Generate Dragon Fact</button>
+    </div>
+
+    <script>
+        const dragonFacts = [
+            "Dragons are believed to be able to live for over 1,000 years in many mythologies.",
+            "Chinese dragons are usually depicted without wings, unlike their Western counterparts.",
+            "Dragons are said to have the ability to control weather in various cultures.",
+            "Some dragons are believed to be wise beings who guard ancient knowledge and treasures.",
+            "In Norse mythology, the dragon Níðhöggr gnaws at the roots of Yggdrasil, the world tree.",
+            "Eastern dragons are typically seen as benevolent, while Western dragons are often portrayed as malevolent.",
+            "Dragons are said to be able to shape-shift into human form in many Asian legends.",
+            "The word 'dragon' comes from the ancient Greek word 'drakon', meaning 'serpent' or 'water-snake'.",
+            "Some dragons are believed to breathe ice instead of fire.",
+            "Baby dragons are called 'wyrmlings' in many fantasy settings.",
+            "Dragons are said to have excellent night vision and can see in complete darkness.",
+            "In some cultures, dragons are believed to be the creators of the universe.",
+            "Dragon blood is said to have magical healing properties in various mythologies.",
+            "Some dragons are believed to communicate telepathically with humans.",
+            "The constellation Draco represents a dragon in the northern sky."
+        ];
+
+        const factDisplay = document.getElementById('fact-display');
+        const generateBtn = document.getElementById('generate-btn');
+
+        function generateFact() {
+            // Add fade-out effect
+            factDisplay.style.opacity = 0;
+            
+            setTimeout(() => {
+                // Get random fact
+                const randomIndex = Math.floor(Math.random() * dragonFacts.length);
+                factDisplay.textContent = dragonFacts[randomIndex];
+                
+                // Add fade-in effect
+                factDisplay.style.opacity = 1;
+            }, 300);
+        }
+
+        generateBtn.addEventListener('click', generateFact);
+
+        // Generate a random fact when the page loads
+        window.onload = generateFact;
+    </script>
+</body>
+</html>
